@@ -1,0 +1,41 @@
+.hero_section_slide_container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../images/slider-new-3-1.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero_head_div {
+    padding: 200px 0px;
+    color: #fff;
+    text-align: center;
+}
+
+/* .hero_section_slide_container{
+    position: relative;
+} */
+
+.hero_bottom {
+    background-color: #192a51;
+    padding: 20px 0px;
+}
+
+.upcoming_matches{
+    text-align: center;
+}
+
+.upcoming_matches h2 {
+    color: #fff;
+}
+
+.hero_bottom {
+    .match_name {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        h6 {
+            color: #fff;
+        }
+    }
+}
