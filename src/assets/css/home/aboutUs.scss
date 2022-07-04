@@ -1,0 +1,139 @@
+@mixin service_class {
+    background-color: rgba(0, 0, 0, 0);
+    padding: 25px 20px 25px 20px;
+    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 9%);
+    display: flex;
+    align-items: center;
+    margin: 10px 20px;
+}
+
+.aboutUs_section {
+    background: #f4f4f4;
+
+    .about_banner {
+        width: 100%;
+        height: 300px;
+        background-image: url('../../images/banner.jpg');
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        color: #fff;
+
+        .about_banner_content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .about_title {
+                font-size: 35px;
+                padding-bottom: 10px;
+                font-weight: 600;
+            }
+
+            .about_text {
+                font-weight: 600;
+
+                span {
+                    color: #00adff;
+                }
+            }
+        }
+    }
+
+    .about_content {
+        padding: 80px 0px;
+
+        .head {
+            text-transform: uppercase;
+            font-size: 20px;
+            padding: 0px 0px 5px 0px;
+        }
+
+        .text {
+            font-size: 15px;
+            color: gray;
+        }
+
+        ul {
+            padding: 20px;
+            margin-top: 10px;
+
+            li {
+                background: #e8e8e8;
+                margin: 10px 0;
+                padding: 10px 10px 10px 10px;
+                font-weight: 500;
+            }
+        }
+
+        .our_service_head {
+            text-align: center;
+            padding: 10px 0px 20px 10px;
+        }
+
+        .services {
+            .service_one {
+                @include service_class;
+            }
+
+            .service_two {
+                @include service_class;
+
+                .content {
+                    padding-left: 20px;
+                }
+            }
+
+            .service_three {
+                @include service_class;
+
+                .content {
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+
+    .about_bg_img {
+        width: 100%;
+        height: 300px;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/slider-new-2-1.jpg");
+        background-position: center;
+        background-size: cover;
+        margin: 50px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .content {
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+
+            p{
+                padding: 10px;
+            }
+            .contact_btn {
+                text-transform: uppercase;
+                padding: 6px 15px;
+                background-color: #00adff;
+                color: #fff;
+                border: 2px solid #00adff;
+                font-weight: 500;
+
+                &:hover{
+                    background-color: transparent;
+                    color: #00adff;
+                    border: 2px solid #00adff; 
+                }
+
+            }
+        }
+    }
+
+}

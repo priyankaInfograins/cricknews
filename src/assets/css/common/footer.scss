@@ -1,0 +1,187 @@
+.footer {
+    background-color: #192a51;
+    color: #fff;
+    padding: 70px 10px 50px 70px;
+    border-bottom: 1px solid rgb(175, 175, 175);
+
+    .footer_about {
+        .footer_logo{
+            span{
+               color: #00adff; 
+            }
+        }
+        .footer_text {
+            line-height: 1.7;
+            padding: 10px 40px 0px 0px;
+        }
+    }
+
+    .useful_links {
+        .link_header {
+            font-size: 20px;
+            font-weight: 600;
+
+            &::after{
+                content: '';
+                border-bottom: 3px solid #00adff;
+                width: 55px;
+                display: block;
+                margin-top: 6px;
+            }
+        }
+
+        .links_text {
+            ul {
+                margin-top: 10px;
+                margin-left: -30px;
+
+                li {
+                    list-style: none;
+
+                    a {
+                        text-decoration: none;
+                        color: #fff;
+                        font-size: 14px;
+                        line-height: 2;
+
+                        &:hover {
+                            color: #00adff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .contact_us {
+        .header {
+            font-size: 20px;
+            font-weight: 600;
+
+            &::after{
+                content: '';
+                border-bottom: 3px solid #00adff;
+                width: 55px;
+                display: block;
+                margin-top: 6px;
+            }
+        }
+
+        .contact_link {
+            ul {
+                margin-top: 10px;
+                margin-left: -30px;
+
+                li {
+                    list-style: none;
+
+                    a {
+                        text-decoration: none;
+                        color: #fff;
+                        font-size: 15px;
+                        line-height: 2.5;
+
+                         svg {
+                            font-size: 1.3rem;
+                            margin-right: 10px;
+                            &:hover {
+                                color: #00adff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .latest_news {
+        .header {
+            font-size: 20px;
+            font-weight: 600;
+
+            &::after{
+                content: '';
+                border-bottom: 3px solid #00adff;
+                width: 55px;
+                display: block;
+                margin-top: 6px;
+            }
+        }
+        p{
+            padding: 10px 0px 0px 0px;
+        }
+        .input_box {
+            input {
+                border-radius: 0rem;
+            }
+
+            .send_button {
+                background-color: #00adff;
+                padding: 6px 30px;
+                color: #fff;
+                font-weight: 500;
+                margin-top: 10px;
+                border: 2px solid transparent;
+                 &:hover{
+                    background-color: transparent;
+                    color:#00adff;
+                    border: 2px solid #00adff;
+                 }
+            }
+        }
+    }
+}
+
+.bottom_footer{
+    background-color: #192a51;
+    color: #fff;
+    padding: 15px 0px 0px 0px;
+
+    .bottom_footer_content{
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 30px;
+          
+        @media screen and (max-width:767px){
+            display: block;
+        }
+
+          .copyright_text{
+            font-size: 15px;
+              @media screen and (max-width:767px){
+                text-align: center;
+                padding-left: 10px;
+                font-size: 14px;
+              }
+          }
+        .social_links{
+            @media screen and (max-width:767px){
+                margin-top: 20px;
+            }
+            ul{
+                display: flex;
+                list-style: none;
+                gap: 25px;
+                 li{
+                    width: 35px;
+                    height: 35px;
+                    text-align: center;
+                    border-radius: 50%;
+                    border: 1px solid #fff;
+                     &:hover{
+                        background-color: #00adff;
+                        border: 1px solid #00adff;
+                     }
+                     a{
+                        color: #fff;
+                        svg{
+                            margin-top: 6px;
+                        }
+                     }
+                 }
+            }
+        }
+    }
+
+    
+}
