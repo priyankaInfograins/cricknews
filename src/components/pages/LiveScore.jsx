@@ -4,7 +4,8 @@ import { MatchList } from '../../assets/js/matchList'
 
 const LiveScore = () => {
     var data = MatchList
-    const [open, setOpen] = useState(false);
+    console.log("data", data)
+
     return (
         <>
             <div className="liveScore_section">
@@ -23,12 +24,10 @@ const LiveScore = () => {
 
                 <div className="liveScore_data">
                     <Container>
-
-
                         <Row>
                             <Col lg={12}>
                                 <Tabs
-                                    defaultActiveKey="International"
+                                    defaultActiveKey={0}
                                     id="uncontrolled-tab-example"
                                     className="mb-3"
                                 >
@@ -36,9 +35,6 @@ const LiveScore = () => {
 
                                         var matchType = e.matchType
                                         var seriesMatches = e.seriesMatches
-                                        var seriesAdWrapper
-
-                                        console.log("seriesMatches", seriesMatches, i)
                                         return (
 
                                             <Tab eventKey={i} title={matchType}>
@@ -50,18 +46,15 @@ const LiveScore = () => {
                                                                 <div>
 
                                                                     <Accordion>
-                                                                        <Accordion.Item eventKey={i}>
+                                                                        <Accordion.Item eventKey={i} key={e.id}>
                                                                             <Accordion.Header>
-
-
                                                                                 {e.seriesAdWrapper.seriesName}
-
                                                                             </Accordion.Header>
                                                                             <Accordion.Body>
 
                                                                                 <div className="row">
 
-                                                                                    <div className="col-md-12" style={{border:"1px solid gray"}}>
+                                                                                    <div className="col-md-12 p-3" style={{ border: "1px solid gray" }}>
                                                                                         <h5 style={{ color: "#00adff" }}>Match Overview</h5>
                                                                                         <Table responsive>
                                                                                             <thead>
@@ -79,16 +72,14 @@ const LiveScore = () => {
                                                                                         </Table>
 
 
-
                                                                                         {e.seriesAdWrapper.matches.map((e, index) => {
-                                                                                            console.log("matchScore============ index", e.matchScore)
 
                                                                                             return (
                                                                                                 <div>
-                                                                                                    <Table responsive >
+                                                                                                    <Table responsive>
 
                                                                                                         <tbody>
-                                                                                                            <tr>
+                                                                                                            <tr key={e.id}>
                                                                                                                 <td>{e.matchInfo.matchDesc}</td>
                                                                                                                 <td>{e.matchInfo.matchFormat}</td>
                                                                                                                 <td>{e.matchInfo.state}</td>
@@ -97,11 +88,9 @@ const LiveScore = () => {
                                                                                                                 <td>{e.matchInfo.team2.teamName}</td>
                                                                                                                 <td>{e.matchInfo.venueInfo.ground}, {e.matchInfo.venueInfo.city}</td>
                                                                                                                 <td>
-
-                                                                                                                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${index}`} aria-expanded="false" aria-controls="collapseExample">
+                                                                                                                    <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${index}`} aria-expanded="false" aria-controls="collapseExample">
                                                                                                                         View
                                                                                                                     </button>
-
                                                                                                                 </td>
 
                                                                                                             </tr>
@@ -109,219 +98,177 @@ const LiveScore = () => {
                                                                                                     </Table>
                                                                                                     <div>
 
-                                                                                                        <div class="collapse" id={`collapse${index}`}>
-                                                                                                            <div class="card card-body">
-                                                                                                            <Container>
-                                                                                        <Row className='justify-content-center'>
-                                                                                            <Col lg={12}>
-                                                                                                <Table bordered>
-                                                                                                    <thead className="text-center">
-                                                                                                        <tr>
-                                                                                                            <th colSpan={6} >Team 1 Score</th>
-                                                                                                        </tr>
-                                                                                                        <tr>
-                                                                                                            <th colSpan={3} >Inngs 1</th>
-                                                                                                            <th colSpan={3} >Inngs 2</th>
-                                                                                                        </tr>
-                                                                                                        <tr>
-                                                                                                            <th >Overs</th>
-                                                                                                            <th>Runs</th>
-                                                                                                            <th>Wickets</th>
-                                                                                                            <th>Overs</th>
-                                                                                                            <th>Runs</th>
-                                                                                                            <th>Wickets</th>
-                                                                                                        </tr>
+                                                                                                        <div className="collapse" id={`collapse${index}`}>
+                                                                                                            <div className="card card-body">
+                                                                                                                <Container>
+                                                                                                                    <Row className='justify-content-center'>
+                                                                                                                        <Col lg={12}>
+                                                                                                                            <div className='text-center border p-3'  style={{backgroundColor:"#6c757d0a"}}>
+                                                                                                                                <h6 className='mb-3' style={{color: "#0048b3",fontSize:"18px"}}>Team 1 Score</h6>
+                                                                                                                                <Row className="justify-content-center">
+                                                                                                                                    <Col lg={6}>
+                                                                                                                                        <Table bordered>
+                                                                                                                                            <thead className='text-center'>
+                                                                                                                                                <tr>
+                                                                                                                                                    <th colSpan={3} >Inngs 1</th>
+                                                                                                                                                </tr>
+                                                                                                                                                <tr>
+                                                                                                                                                    <th>Overs</th>
+                                                                                                                                                    <th>Runs</th>
+                                                                                                                                                    <th>Wickets</th>
 
-                                                                                                    </thead>
-                                                                                                    <tbody className="text-center">
-                                                                                                        {e.matchScore ? 
-                                                                                                            <tr>
-                                                                                                                <td>{e.matchScore.team1Score.inngs1.overs}</td>
-                                                                                                                <td>{e.matchScore.team1Score.inngs1.runs}</td>
-                                                                                                                <td>{e.matchScore.team1Score.inngs1.wickets}</td>
-                                                                                                                <td>{e.matchScore.team1Score.inngs2 ?  e.matchScore.team1Score.inngs2.overs : " "}</td>
-                                                                                                                <td>{e.matchScore.team1Score.inngs2 ? e.matchScore.team1Score.inngs2.runs : " "}</td>
-                                                                                                                <td>{e.matchScore.team1Score.inngs2 ?  e.matchScore.team1Score.inngs2.wickets : " "}</td>
-                                                                                                            </tr>
-                                                                                                            : 
-                                                                                                            <div></div>
-                                                                                                        }
-                                                                                                   
-                                                                                                    </tbody>
-                                                                                                </Table>
-                                                                                            </Col>
-                                                                                        </Row>
-                                                                                     
-                                                                                       
-                                                                                        <Row className='justify-content-center'>
-                                                                                        <Col lg={12}>
-                                                                                            <Table bordered>
-                                                                                                <thead className="text-center">
-                                                                                                    <tr>
-                                                                                                        <th colSpan={6} >Team 2 Score</th>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th colSpan={3} >Inngs 1</th>
-                                                                                                        <th colSpan={3} >Inngs 2</th>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th >Overs</th>
-                                                                                                        <th>Runs</th>
-                                                                                                        <th>Wickets</th>
-                                                                                                        <th>Overs</th>
-                                                                                                        <th>Runs</th>
-                                                                                                        <th>Wickets</th>
-                                                                                                    </tr>
+                                                                                                                                                </tr>
+                                                                                                                                            </thead>
+                                                                                                                                            <tbody className="text-center">
+                                                                                                                                                {e.matchScore ?
+                                                                                                                                                    <tr key={e.id}>
+                                                                                                                                                        <td>{e.matchScore.team1Score.inngs1.overs}</td>
+                                                                                                                                                        <td>{e.matchScore.team1Score.inngs1.runs}</td>
+                                                                                                                                                        <td>{e.matchScore.team1Score.inngs1.wickets}</td>
+                                                                                                                                                    </tr>
+                                                                                                                                                    :
+                                                                                                                                                    <tr></tr>
+                                                                                                                                                }
 
-                                                                                                </thead>
-                                                                                                <tbody className="text-center">
-                                                                                                    {e.matchScore ? 
-                                                                                                        <tr>
-                                                                                                            <td>{e.matchScore.team2Score ? e.matchScore.team2Score.inngs1.overs : " "}</td>
-                                                                                                            <td>{e.matchScore.team2Score ? e.matchScore.team2Score.inngs1.runs : ""}</td>
-                                                                                                            <td>{e.matchScore.team2Score ? e.matchScore.team2Score.inngs1.wickets : ""}</td>
-                                                                                                            {/* <td>{e.matchScore.team2Score ? (e.matchScore.team2Score.inngs2 ?  e.matchScore.team1Score.inngs2.overs : " ") : ""}</td>
-                                                                                                            <td>{e.matchScore.team2Score ? (e.matchScore.team2Score.inngs2 ? e.matchScore.team1Score.inngs2.runs : " ") : ""}</td>
-                                                                                                            <td>{e.matchScore.team2Score ? (e.matchScore.team2Score.inngs2 ?  e.matchScore.team1Score.inngs2.wickets : " ") : ""}</td> */}
-                                                                                                        </tr>
-                                                                                                        : 
-                                                                                                        <div></div>
-                                                                                                    }
-                                                                                               
-                                                                                                </tbody>
-                                                                                            </Table>
-                                                                                        </Col>
-                                                                                    </Row>
-                                                                                       
-                                                                                      
-                                                                                    </Container>
+                                                                                                                                            </tbody>
+                                                                                                                                        </Table>
+                                                                                                                                    </Col>
+                                                                                                                                    {e.matchScore ?
+                                                                                                                                        (
+                                                                                                                                            e.matchScore.team1Score.inngs2 ?
+                                                                                                                                                <Col lg={6}>
+
+                                                                                                                                                    <Table bordered>
+                                                                                                                                                        <thead className='text-center'>
+                                                                                                                                                            <tr>
+                                                                                                                                                                <th colSpan={3} >Inngs 2</th>
+                                                                                                                                                            </tr>
+                                                                                                                                                            <tr>
+                                                                                                                                                                <th>Overs</th>
+                                                                                                                                                                <th>Runs</th>
+                                                                                                                                                                <th>Wickets</th>
+
+                                                                                                                                                            </tr>
+                                                                                                                                                        </thead>
+                                                                                                                                                        <tbody className="text-center">
+
+                                                                                                                                                            <tr key={e.id}>
+                                                                                                                                                                <td>{ e.matchScore.team1Score.inngs2.overs }</td>
+                                                                                                                                                                <td>{ e.matchScore.team1Score.inngs2.runs }</td>
+                                                                                                                                                                <td>{ e.matchScore.team1Score.inngs2.wickets }</td>
+                                                                                                                                                            </tr>
+
+
+                                                                                                                                                        </tbody>
+                                                                                                                                                    </Table>
+
+                                                                                                                                                </Col>
+                                                                                                                                                :
+                                                                                                                                                " "
+                                                                                                                                        )
+
+                                                                                                                                        :
+                                                                                                                                        " "
+                                                                                                                                    }
+                                                                                                                                </Row>
+                                                                                                                            </div>
+                                                                                                                        </Col>
+                                                                                                                    </Row>
+
+                                                                                                                    {e.matchScore ?
+                                                                                                                        (e.matchScore.team2Score ?
+                                                                                                                            <Row className='justify-content-center mt-4'>
+                                                                                                                                <Col lg={12}>
+                                                                                                                                    <div className='text-center border p-3' style={{backgroundColor:"#6c757d0a"}}>
+                                                                                                                                        <h6 className='mb-3'  style={{color: "#0048b3",fontSize:"18px"}}>Team 2 Score</h6>
+                                                                                                                                        <Row className='justify-content-center'>
+                                                                                                                                            <Col lg={6}>
+                                                                                                                                                <Table bordered>
+                                                                                                                                                    <thead className='text-center'>
+                                                                                                                                                        <tr>
+                                                                                                                                                            <th colSpan={3} >Inngs 1</th>
+                                                                                                                                                        </tr>
+                                                                                                                                                        <tr>
+                                                                                                                                                            <th>Overs</th>
+                                                                                                                                                            <th>Runs</th>
+                                                                                                                                                            <th>Wickets</th>
+
+                                                                                                                                                        </tr>
+                                                                                                                                                    </thead>
+                                                                                                                                                    <tbody className="text-center">
+                                                                                                                                                        {e.matchScore ?
+                                                                                                                                                            <tr key={e.id}>
+                                                                                                                                                                <td>{e.matchScore.team2Score ? e.matchScore.team2Score.inngs1.overs : " "}</td>
+                                                                                                                                                                <td>{e.matchScore.team2Score ? e.matchScore.team2Score.inngs1.runs : ""}</td>
+                                                                                                                                                                <td>{e.matchScore.team2Score ? e.matchScore.team2Score.inngs1.wickets : ""}</td>
+                                                                                                                                                            </tr>
+                                                                                                                                                            :
+                                                                                                                                                            <tr></tr>
+                                                                                                                                                        }
+
+                                                                                                                                                    </tbody>
+                                                                                                                                                </Table>
+                                                                                                                                            </Col>
+                                                                                                                                            {e.matchScore ?
+                                                                                                                                                (e.matchScore.team2Score ? 
+                                                                                                                                                    ( e.matchScore.team2Score.inngs2 ? 
+                                                                                                                                                        <Col lg={6}>
+                                                                                                                                                        <Table bordered>
+                                                                                                                                                            <thead className='text-center'>
+                                                                                                                                                                <tr>
+                                                                                                                                                                    <th colSpan={3} >Inngs 2</th>
+                                                                                                                                                                </tr>
+                                                                                                                                                                <tr>
+                                                                                                                                                                    <th>Overs</th>
+                                                                                                                                                                    <th>Runs</th>
+                                                                                                                                                                    <th>Wickets</th>
+
+                                                                                                                                                                </tr>
+                                                                                                                                                            </thead>
+                                                                                                                                                            <tbody className="text-center">
+
+                                                                                                                                                                <tr key={e.id}>
+                                                                                                                                                                    <td>{ e.matchScore.team2Score.inngs2.overs}</td>
+                                                                                                                                                                    <td>{ e.matchScore.team2Score.inngs2.runs}</td>
+                                                                                                                                                                    <td>{ e.matchScore.team2Score.inngs2.wickets}</td>
+                                                                                                                                                                </tr>
+
+
+                                                                                                                                                            </tbody>
+                                                                                                                                                        </Table>
+                                                                                                                                                    </Col>
+
+                                                                                                                                                        :
+                                                                                                                                                        " "
+
+                                                                                                                                                )
+                                                                                                                                                   
+                                                                                                                                                    :
+                                                                                                                                                    " "
+                                                                                                                                                )
+
+                                                                                                                                                :
+                                                                                                                                                " "
+                                                                                                                                            }
+                                                                                                                                        </Row>
+                                                                                                                                    </div>
+                                                                                                                                </Col>
+                                                                                                                            </Row>
+                                                                                                                            :
+                                                                                                                            <Row></Row>
+                                                                                                                        )
+                                                                                                                        :
+                                                                                                                        " "
+                                                                                                                    }
+
+                                                                                                                </Container>
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             )
                                                                                         })}
-
-
-
                                                                                     </div>
-
-
-
-
-
-
-
-
-
-                                                                                    
-
-
-
-                                                                                    {/* <div className="col-md-12">
-                                                                                        <h5 style={{ color: "#00adff" }}>Match Score</h5>
-
-
-                                                                                        {e.seriesAdWrapper.matches.map((e) => {
-                                                                                            return (
-                                                                                                <div className="match_score_div" style={{ border: "1px solid gray", padding: "10px", margin: "10px 20px" }}>
-                                                                                                    {e.matchScore ?
-                                                                                                        <div>
-                                                                                                            <h6>Team1 Score </h6>
-                                                                                                            <div className='' style={{ display: "flex", justifyContent: "space-around" }}>
-                                                                                                                <div className="team_score1">
-                                                                                                                    <p><b>inngs1 :-</b></p>
-                                                                                                                    <p><b>overs</b>: {e.matchScore.team1Score.inngs1.overs}</p>
-                                                                                                                    <p><b>runs</b>:{e.matchScore.team1Score.inngs1.runs}</p>
-                                                                                                                    <p><b>wickets</b>:{e.matchScore.team1Score.inngs1.wickets}</p>
-                                                                                                                </div>
-                                                                                                                <div className="team_score1">
-                                                                                                                    <p><b>inngs2 :-</b></p>
-                                                                                                                    <p><b>overs</b>: {e.matchScore.team1Score.inngs1.overs}</p>
-                                                                                                                    <p><b>runs</b>:{e.matchScore.team1Score.inngs1.runs}</p>
-                                                                                                                    <p><b>wickets</b>:{e.matchScore.team1Score.inngs1.wickets}</p>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        :
-                                                                                                        <div></div>
-                                                                                                    }
-
-                                                                                                    {e.matchScore ?
-                                                                                                        <div>
-                                                                                                            <h6>Team2 Score </h6>
-                                                                                                            <div className='' style={{ display: "flex", justifyContent: "space-around" }}>
-                                                                                                                <div className="team_score2">
-                                                                                                                    <p><b>inngs1 :-</b></p>
-                                                                                                                    <p><b>overs</b>:{e.matchScore.team2Score ? e.matchScore.team2Score.inngs1.overs : " "}</p>
-                                                                                                                    <p><b>runs</b>:{e.matchScore.team2Score ? e.matchScore.team1Score.inngs1.runs : " "}</p>
-                                                                                                                    <p><b>wickets</b>:{e.matchScore.team2Score ? e.matchScore.team1Score.inngs1.wickets : " "}</p>
-                                                                                                                </div>
-                                                                                                                <div className="team_score2">
-                                                                                                                    <p><b>inngs2 :-</b></p>
-                                                                                                                    <p><b>overs</b>:{e.matchScore.team2Score ? e.matchScore.team2Score.inngs1.overs : " "}</p>
-                                                                                                                    <p><b>runs</b>:{e.matchScore.team2Score ? e.matchScore.team1Score.inngs1.runs : " "}</p>
-                                                                                                                    <p><b>wickets</b>:{e.matchScore.team2Score ? e.matchScore.team1Score.inngs1.wickets : " "}</p>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        :
-                                                                                                        <div></div>
-                                                                                                    }
-
-                                                                                                </div>
-                                                                                            )
-                                                                                        })}
-                                                                                    </div> */}
-                                                                                    {/* <div className="col-md-12">
-                                                                                <h5>Match Score</h5>
-                                                                                    <div className="match_score_div" style={{border:"1px solid gray", padding:"10px", margin:"10px 20px"}}>
-                                                                                        {e.matchScore ? 
-                                                                                         <div>
-                                                                                            <h6>Team1 Score </h6>
-                                                                                        <div className='' style={{display:"flex", justifyContent:"space-around"}}>
-                                                                                            <div className="team_score1">
-                                                                                            <p><b>inngs1 :-</b></p>
-                                                                                            <p><b>overs</b>: {e.matchScore.team1Score.inngs1.overs}</p>
-                                                                                            <p><b>runs</b>:{e.matchScore.team1Score.inngs1.runs}</p>
-                                                                                            <p><b>wickets</b>:{e.matchScore.team1Score.inngs1.wickets}</p>
-                                                                                        </div>
-                                                                                        <div className="team_score1">
-                                                                                        <p><b>inngs2 :-</b></p>
-                                                                                            <p><b>overs</b>: {e.matchScore.team1Score.inngs1.overs}</p>
-                                                                                            <p><b>runs</b>:{e.matchScore.team1Score.inngs1.runs}</p>
-                                                                                            <p><b>wickets</b>:{e.matchScore.team1Score.inngs1.wickets}</p>
-                                                                                        </div>
-                                                                                        </div>
-                                                                                         </div>
-                                                                                        : 
-                                                                                        <div></div>
-                                                                                        }
-                                                                                       
-                                                                                        {e.matchScore ? 
-                                                                                         <div>
-                                                                                            <h6>Team2 Score </h6>
-                                                                                        <div className='' style={{display:"flex", justifyContent:"space-around"}}>
-                                                                                            <div className="team_score2">
-                                                                                            <p><b>inngs1 :-</b></p>
-                                                                                            <p><b>overs</b>:{e.matchScore.team2Score ? e.matchScore.team2Score.inngs1.overs: " " }</p>
-                                                                                            <p><b>runs</b>:{e.matchScore.team2Score ? e.matchScore.team1Score.inngs1.runs: " " }</p>
-                                                                                            <p><b>wickets</b>:{e.matchScore.team2Score ? e.matchScore.team1Score.inngs1.wickets: " " }</p>
-                                                                                        </div>
-                                                                                        <div className="team_score2">
-                                                                                        <p><b>inngs2 :-</b></p>
-                                                                                        <p><b>overs</b>:{e.matchScore.team2Score ? e.matchScore.team2Score.inngs1.overs: " " }</p>
-                                                                                            <p><b>runs</b>:{e.matchScore.team2Score ? e.matchScore.team1Score.inngs1.runs: " " }</p>
-                                                                                            <p><b>wickets</b>:{e.matchScore.team2Score ? e.matchScore.team1Score.inngs1.wickets: " " }</p>
-                                                                                        </div>
-                                                                                        </div>
-                                                                                         </div>
-                                                                                        : 
-                                                                                        <div></div>
-                                                                                        }
-                                                                                       
-                                                                                    </div>
-                                                                                </div> */}
                                                                                 </div>
 
                                                                             </Accordion.Body>
@@ -348,9 +295,6 @@ const LiveScore = () => {
                                             </Tab>
                                         )
                                     })}
-
-
-
 
                                 </Tabs>
                             </Col>
