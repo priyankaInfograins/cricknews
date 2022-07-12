@@ -91,6 +91,17 @@
                         &:hover{
                             background-color: #00adff;
                             color: #fff;
+                            .series_time{
+                                color: #fff;
+                            }
+                        }
+
+                        .series_time{
+                            font-size: 14px;
+                            color: #64686e;
+                            margin-left: 20px;
+                            margin-top: 3px;
+                            font-weight: 400;
                         }
                     }
 

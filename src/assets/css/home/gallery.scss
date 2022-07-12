@@ -43,12 +43,16 @@
             background: #fff;
             overflow: hidden;
         }
+        .hover01{
+            margin-top: 25px;
+        }
         .hover01 figure img {
             width: 100%;
             -webkit-transform: scale(1);
             transform: scale(1);
             -webkit-transition: .3s ease-in-out;
             transition: .3s ease-in-out;
+            border-radius: 3px;
         }
         .hover01 figure:hover img {
             -webkit-transform: scale(1.3);

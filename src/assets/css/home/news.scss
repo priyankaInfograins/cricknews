@@ -1,0 +1,48 @@
+.news_section {
+    .news_content {
+        .news_data {
+            .news_caption {
+                padding: 5px 0px;
+                color: #00adff;
+                font-size: 18px;
+            }
+
+            .news_img {
+                img {
+                    border-radius: 5px;
+                }
+            }
+
+            .news_context {
+                padding: 10px 0px 0px 0px;
+                color: #084298;
+                font-weight: 500;
+                font-size: 19px;
+            }
+
+            .news_headline {
+                font-size: 25px;
+                padding: 0px;
+                font-weight: 500;
+            }
+
+            .news_intro {
+                font-size: 16px;
+                color: gray;
+            }
+
+            .news_time {
+                display: flex;
+                svg {
+                    margin-right: 10px;
+                    font-size: 1.4rem;
+                    color: gray;
+                }
+                .time{
+                    font-size: 17px;
+                    color: gray;
+                }
+            }
+        }
+    }
+}

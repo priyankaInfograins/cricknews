@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap'
 import { GalleryList } from '../../assets/js/gallery';
 import BreadCrumbs from './subComponents/BreadCrumbs';
-
+import moment from 'moment'
 const Gallery = () => {
     let data = GalleryList
     console.log("gallery data", data.photoGalleryInfoList)
-
 
     // var dateTIme =  new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(e.photoGalleryInfo.publishedTime)
     return (
@@ -20,9 +19,10 @@ const Gallery = () => {
                             {data.photoGalleryInfoList.map((e, i) => {
 
                                 return (
-                                    <Col lg={4} md={6} className="my-3" key={i}>
+                                    <>
+                                    
                                         {e.photoGalleryInfo ?
-
+                                            <Col lg={4} md={6} className="" key={i}>
                                             <div className="hover01 column">
                                                 <div className='content'>
                                                     <figure><img src="https://media.istockphoto.com/photos/girl-playing-cricket-picture-id872676564?k=20&m=872676564&s=612x612&w=0&h=Jx-QKxZnBykmy-0MOIuv0IBfOZRN_n1B6IiAefpFMAU=" /></figure>
@@ -33,11 +33,13 @@ const Gallery = () => {
 
                                                 </div>
                                             </div>
+                                            </Col>
 
                                             :
-                                            <div>{e.ad.name}</div>
+                                            ""
                                         }
-                                    </Col>
+                                   
+                                    </>
                                 )
                             })}
                         </Row>
