@@ -2,22 +2,12 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap'
 import { FaBuilding, FaPhoneAlt } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
+import BreadCrumbs from './subComponents/BreadCrumbs';
 const ContactUs = () => {
     return (
         <>
             <div className="contactUs_section">
-                <div className="contact_banner">
-                    <Container>
-                        <Row>
-                            <Col lg={12}>
-                                <div className="contact_banner_content">
-                                    <div className="contact_title">Contact Us</div>
-                                    <div className="contact_text">Home &nbsp;&nbsp;  » &nbsp;&nbsp; <span>Contact Us</span></div>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Container>
-                </div>
+            <BreadCrumbs heading="Contact Us" />
 
                 <div className="contact_box">
                     <Container>

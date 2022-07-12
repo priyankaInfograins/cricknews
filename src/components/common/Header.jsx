@@ -1,8 +1,11 @@
 import React from 'react'
 import { Container, Navbar, Nav, Form, Button } from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+
 export default function Header() {
+    
     return (
+      
         <>
             <header>
                 <Navbar variant='dark' expand="lg" className='head_nav'>
@@ -16,11 +19,11 @@ export default function Header() {
                                 navbarScroll
                             >
                                 <Nav.Link><Link to="/live_score">Live Score</Link></Nav.Link>
-                                <Nav.Link href="#action2">Schedule</Nav.Link>
+                                <Nav.Link><Link to="/match_schedule">Match Schedule</Link></Nav.Link>
                                 <Nav.Link href="#action3">Archives</Nav.Link>
-                                <Nav.Link href="#action3">News</Nav.Link>
-                                <Nav.Link href="#action3">Series</Nav.Link>
-                                <Nav.Link href="#action3">Teams</Nav.Link>
+                                <Nav.Link><Link to="/news">News</Link></Nav.Link>
+                                <Nav.Link><Link to="/gallery">Gallery</Link></Nav.Link>
+                                <Nav.Link><Link to="/team">Teams</Link></Nav.Link>
                                 <Nav.Link><Link to="/about_us">About Us</Link></Nav.Link>
                                 <Nav.Link><Link to="/contact_us">Contact Us</Link></Nav.Link>
                             </Nav>

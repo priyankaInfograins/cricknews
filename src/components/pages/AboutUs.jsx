@@ -4,23 +4,13 @@ import about from '../../assets/images/about.jpg'
 import check from '../../assets/images/check.png'
 import social from '../../assets/images/social.png'
 import time from '../../assets/images/time.png'
+import BreadCrumbs from './subComponents/BreadCrumbs';
 const AboutUs = () => {
     
     return (
         <>
             <div className="aboutUs_section">
-                <div className="about_banner">
-                    <Container>
-                        <Row>
-                            <Col lg={12}>
-                                <div className="about_banner_content">
-                                    <div className="about_title">About Us</div>
-                                    <div className="about_text">Home &nbsp;&nbsp;  » &nbsp;&nbsp; <span>About Us</span></div>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Container>
-                </div>
+               <BreadCrumbs heading="About Us" />
 
                 <div className="about_content">
                     <Container>
@@ -91,8 +81,9 @@ const AboutUs = () => {
                 </div>
 
                 
-                    <Container fluid>
+                    
                     <div className="about_bg_img">
+                    <Container fluid>
                         <Row>
                             <Col lg={12}>
                                 <div className="content">
@@ -102,8 +93,9 @@ const AboutUs = () => {
                                 </div>
                             </Col>
                         </Row>
+                        </Container>
                         </div>
-                    </Container>
+                   
                 
             </div>
         </>

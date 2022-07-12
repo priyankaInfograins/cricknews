@@ -88,6 +88,10 @@
                             border: transparent !important;
                             box-shadow: none !important;
                         }
+                        &:hover{
+                            background-color: #00adff;
+                            color: #fff;
+                        }
                     }
 
                     .accordion-button:not(.collapsed) {

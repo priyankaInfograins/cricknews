@@ -1,0 +1,54 @@
+.team_section {
+    .team_content {
+        .team_box {
+            background: #fff;
+            box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);
+            padding: 30px 30px;
+            text-align: center;
+            // transition: .8s;
+            // transform: translateY(0);
+            top: 0px;
+            position: relative;
+            border-bottom: 3px solid #fff;
+
+            &:hover {
+                // transform: translateY(-10px);
+                border-bottom: 3px solid #00adff;
+                transition: all 0.2s ease-out;
+                box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+                top: -4px;
+
+                .team_name{
+                    color: #00adff;
+                }
+                .team_country_name{
+                    color: #333;
+                }
+            }
+
+            .team_img {
+                img {
+                    width: 170px;
+                }
+            }
+
+            .team_name {
+                font-weight: 600;
+                font-size: 19px;
+                padding-top: 15px;
+            }
+
+            .team_country_name {
+                font-size: 17px;
+                color: #00adff;
+                font-weight: 600;
+                padding: 5px 0px;
+            }
+
+            .team_para {
+                font-size: 14px;
+                color: #49576cc4;
+            }
+        }
+    }
+}

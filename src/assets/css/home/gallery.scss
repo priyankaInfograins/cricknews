@@ -1,0 +1,85 @@
+.gallery_section {
+    background: #f4f4f4;
+
+    .gallery_banner {
+        width: 100%;
+        height: 300px;
+        background-image: url('../../images/banner.jpg');
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        color: #fff;
+
+        .gallery_banner_content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .gallery_title {
+                font-size: 35px;
+                padding-bottom: 10px;
+                font-weight: 600;
+            }
+
+            .gallery_text {
+                font-weight: 600;
+
+                span {
+                    color: #00adff;
+                }
+            }
+        }
+    }
+
+    .gallery_imgages{
+       
+        figure {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            overflow: hidden;
+        }
+        .hover01 figure img {
+            width: 100%;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+        .hover01 figure:hover img {
+            -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+        }
+        .content {
+            position: relative;
+            width: 100%;
+          }
+        .overlay {
+            position: absolute; 
+            bottom: 0; 
+            // background: rgb(0, 0, 0);
+            // background: rgba(0, 0, 0, 0.5); 
+            background: #084298cf;
+            color: #f1f1f1; 
+            width: 100%;
+            transition: .5s ease;
+            opacity:0;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+            text-align: left;
+            height: 110px;
+               
+          }
+          .content:hover .overlay{
+            opacity: 1;
+          }
+    }
+}
+
+
+ 

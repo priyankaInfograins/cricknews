@@ -1,0 +1,31 @@
+.breadcrumbs_section {
+    width: 100%;
+    height: 300px;
+    background-image: url('../../images/banner.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    color: #fff;
+
+    .breadcrumbs_banner_content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .breadcrumbs_title {
+            font-size: 35px;
+            padding-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .breadcrumbs_text {
+            font-weight: 600;
+
+            span {
+                color: #00adff;
+            }
+        }
+    }
+}

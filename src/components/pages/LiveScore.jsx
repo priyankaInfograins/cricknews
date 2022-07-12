@@ -1,26 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Nav, Tab, Accordion, Tabs, Table, Button, Collapse } from 'react-bootstrap';
 import { MatchList } from '../../assets/js/matchList'
+import BreadCrumbs from './subComponents/BreadCrumbs';
+
 
 const LiveScore = () => {
+    const [liveData, setLiveData] = useState([])
     var data = MatchList
     console.log("data", data)
 
+    //useEffect(()=>{
+        //const options = {
+    //     method: 'GET',
+    //     headers: {
+    //         'X-RapidAPI-Key': '75feb6c1dfmshd03c88ff0f818b7p1caed4jsnf4de6a9b00bc',
+    //         'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
+    //     }
+    // };
+    
+    // fetch('https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent', options)
+    //     .then(response => response.json())
+    //     .then(response => {
+    //         console.log("response",response)
+    //         setLiveData(response)
+    //     })
+    //     .catch(err => console.error(err));
+    // })
+    // console.log("liveData", liveData)
     return (
         <>
             <div className="liveScore_section">
-                <div className="liveScore_banner">
-                    <Container>
-                        <Row>
-                            <Col lg={12}>
-                                <div className="liveScore_banner_content">
-                                    <div className="liveScore_title">Live Score</div>
-                                    {/* <div className="liveScore_text">Home &nbsp;&nbsp;  » &nbsp;&nbsp; <span>Live Score</span></div> */}
-                                </div>
-                            </Col>
-                        </Row>
-                    </Container>
-                </div>
+                <BreadCrumbs heading = "Live Score"  />
 
                 <div className="liveScore_data">
                     <Container>
@@ -65,7 +75,7 @@ const LiveScore = () => {
                                                                                                     <th>Status</th>
                                                                                                     <th>Team 1</th>
                                                                                                     <th>Team 2</th>
-                                                                                                    <th>venueInfo</th>
+                                                                                                    <th>Venue</th>
                                                                                                     <th style={{ color: "#00adff" }}>Match Score</th>
                                                                                                 </tr>
                                                                                             </thead>
@@ -76,7 +86,7 @@ const LiveScore = () => {
 
                                                                                             return (
                                                                                                 <div>
-                                                                                                    <Table responsive>
+                                                                                                    <Table responsive hover>
 
                                                                                                         <tbody>
                                                                                                             <tr key={e.id}>
